@@ -10,6 +10,7 @@
         <module>leetcode</module>
         <module>reactive</module>
         <module>resilience4j</module>
+        <module>shiro</module>
     </modules>
 
     <groupId>com.honeycomb</groupId>
