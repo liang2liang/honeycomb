@@ -1,0 +1,11 @@
+package drools;
+dialect  "mvel"
+import com.honeycomb.drools.*;
+
+
+rule "demo"
+    when
+        $car : Car(person.name instanceof String && person.name matches ("ins_art(.)*"))
+    then
+        $car.discount = 80;
+    end

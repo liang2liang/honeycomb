@@ -6,6 +6,7 @@
     <modules>
         <module>util</module>
         <module>java</module>
+        <module>drools</module>
     </modules>
 
     <parent>
@@ -22,6 +23,7 @@
 
     <properties>
         <mybatis.version>2.1.0</mybatis.version>
+        <lombok.version>1.18.12</lombok.version>
         <java.version>11</java.version>
     </properties>
 
@@ -62,6 +64,11 @@
                 <scope>test</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -91,10 +98,6 @@
                         <version>${spring-restdocs.version}</version>
                     </dependency>
                 </dependencies>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
