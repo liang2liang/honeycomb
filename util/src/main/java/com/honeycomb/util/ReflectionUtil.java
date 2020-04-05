@@ -1,9 +1,14 @@
 package com.honeycomb.util;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.core.ResolvableType;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -11,6 +16,61 @@ import java.util.stream.Collectors;
  * @version 1.0.0
  */
 public class ReflectionUtil {
+
+    private static final Logger log = LogManager.getLogger(ReflectionUtil.class);
+
+    /**
+     * 根据传入的方法名字符串，获取对应的方法
+     *
+     * @param clazz          类的Class对象
+     * @param name           方法名
+     * @param parameterTypes 方法的形参对应的Class类型【可以不写】
+     * @return 方法对象【Method类型】
+     */
+    public static Method getMethod(Class<?> clazz, String name, Class<?>... parameterTypes) {
+        try {
+            return clazz.getMethod(name, parameterTypes);
+        } catch (NoSuchMethodException e) {
+            if (log.isDebugEnabled())
+                log.error("在类[" + clazz.getName() + "]中不存在方法名为" + name, e);
+        }
+        return null;
+    }
+
+    /**
+     * 根据传入的方法对象，调用对应的方法
+     *
+     * @param method 方法对象
+     * @param obj    要调用的实例对象【如果是调用静态方法，则可以传入null】
+     * @param args   传入方法的实参【可以不写】
+     * @return 方法的返回值【没有返回值，则返回null】
+     */
+    public static Object invokeMethod(Method method, Object obj, Object... args) {
+        method.setAccessible(true);
+        try {
+            return method.invoke(obj, args);
+        } catch (Exception e) {
+            if (log.isDebugEnabled())
+                log.debug("在类[" + Optional.ofNullable(obj).map(Object::getClass).map(Class::getName).orElse("静态类") + "]中调用方法名为" + method.getName() + "的方法出错", e);
+        }
+        return null;
+    }
+
+    /**
+     * 判断一个属性是否为boolean/Boolean类型
+     * <p>
+     * 当{@code field}为null则返回{@code false}
+     * </p>
+     *
+     * @param field 属性对象
+     * @return {@code true} 是 {@code false} 不是
+     * @see Field
+     */
+    public static boolean isBoolean(Field field) {
+        if (field == null)
+            return false;
+        return field.getType().isAssignableFrom(boolean.class) || field.getType().isAssignableFrom(Boolean.class);
+    }
 
     /**
      * 获取指定包含泛型类的第N个泛型对象
