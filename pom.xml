@@ -8,6 +8,7 @@
         <module>java</module>
         <module>drools</module>
         <module>leetcode</module>
+        <module>reactive</module>
     </modules>
 
     <parent>
