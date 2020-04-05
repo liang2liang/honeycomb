@@ -11,6 +11,8 @@
         <module>reactive</module>
         <module>resilience4j</module>
         <module>shiro</module>
+        <module>vertx</module>
+        <module>spider</module>
     </modules>
 
     <groupId>com.honeycomb</groupId>

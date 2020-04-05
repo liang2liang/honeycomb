@@ -10,6 +10,8 @@ import com.alibaba.fastjson.PropertyNamingStrategy;
  */
 public class StringUtil {
 
+    public static final String EMPTY = "";
+
     /**
      * 字符串格式化——帕斯卡命名法
      * <pre>
