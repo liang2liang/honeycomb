@@ -29,7 +29,7 @@ public class UserController implements EnvironmentAware {
 
     @GetMapping("/username")
     public String getUsername(){
-        return user.getUsername();
+        return username;
     }
 
     @Override

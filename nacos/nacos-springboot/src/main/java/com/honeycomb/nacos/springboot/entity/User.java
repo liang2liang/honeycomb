@@ -1,6 +1,5 @@
 package com.honeycomb.nacos.springboot.entity;
 
-import com.alibaba.nacos.api.config.annotation.NacosConfigurationProperties;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Component
-@NacosConfigurationProperties(prefix = "user", dataId = "nacos.springboot.properties", groupId = "nacos:springboot", autoRefreshed = true)
+//@NacosConfigurationProperties(prefix = "user", dataId = "nacos.springboot.properties", groupId = "nacos:springboot", autoRefreshed = true)
 public class User {
 
     private String username;
