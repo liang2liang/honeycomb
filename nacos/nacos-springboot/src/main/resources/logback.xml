@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" debug="false">
+
+    <!--<property name="LOG_HOME" value="./logs"/>-->
+
+    <property name="encoding" value="UTF-8"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!--<encoder class="net.logstash.logback.encoder.LogstashEncoder" charset="UTF-8"/>-->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+
+    <!--<appender name="statisticsPerformanceLog" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+    <!--<file>${LOG_HOME}/out.log</file>-->
+    <!--<append>true</append>-->
+    <!--<encoder class="net.logstash.logback.encoder.LogstashEncoder" charset="UTF-8"/>-->
+    <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+    <!--<fileNamePattern>${LOG_HOME}/out.log.%d{yyyy-MM-dd}</fileNamePattern>-->
+    <!--</rollingPolicy>-->
+    <!--</appender>-->
+
+    <!--<appender name="statisticsPerformanceLog" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+        <!--<file>${LOG_HOME}/out.log</file>-->
+        <!--<append>true</append>-->
+        <!--<encoder class="net.logstash.logback.encoder.LogstashEncoder" charset="UTF-8"/>-->
+        <!--&lt;!&ndash;<encoder>&ndash;&gt;-->
+        <!--&lt;!&ndash;<Pattern>[%date{yyyy-MM-dd HH:mm:ss}] [%-5level][%thread] [%logger:%line] &#45;&#45;%mdc{client} %msg%n</Pattern>&ndash;&gt;-->
+        <!--&lt;!&ndash;<charset>utf-8</charset>&ndash;&gt;-->
+        <!--&lt;!&ndash;</encoder>&ndash;&gt;-->
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+            <!--<fileNamePattern>${LOG_HOME}/out.log.%d{yyyy-MM-dd}</fileNamePattern>-->
+            <!--<MaxHistory>10</MaxHistory>-->
+        <!--</rollingPolicy>-->
+    <!--</appender>-->
+
+    <logger name="java.sql.PreparedStatement" level="debug"/>
+    <logger name="java.sql.Statement" level="debug"/>
+
+    <!--<logger name="syncRecord" level="INFO">-->
+    <!--<appender-ref ref="syncRecord"/>-->
+    <!--</logger>-->
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <!--<appender-ref ref="statisticsPerformanceLog"/>-->
+        <!--<appender-ref ref="syncRecord"/>-->
+    </root>
+</configuration>
