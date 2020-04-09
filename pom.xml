@@ -15,6 +15,7 @@
         <module>spider</module>
         <module>springboot</module>
         <module>nacos</module>
+        <module>sentinel</module>
     </modules>
 
     <groupId>com.honeycomb</groupId>
