@@ -1,6 +1,7 @@
 package com.honeycomb.nacos.springboot.controller;
 
 import com.alibaba.nacos.api.annotation.NacosInjected;
+import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.api.naming.NamingService;
 import com.alibaba.nacos.api.naming.pojo.Instance;
@@ -21,6 +22,9 @@ public class DiscoveryController {
 
     @NacosInjected
     private NamingService namingService;
+
+    @NacosInjected
+    private ConfigService configService;
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public List<Instance> get(@RequestParam String serviceName) throws NacosException {
