@@ -16,7 +16,6 @@
         <module>springboot</module>
         <module>nacos</module>
         <module>sentinel</module>
-        <module>dubbo-demo</module>
         <module>dubbo</module>
     </modules>
 
