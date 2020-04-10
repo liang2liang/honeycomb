@@ -7,6 +7,7 @@ import com.honeycomb.dubbo.server.service.impl.HelloServiceImpl;
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.PropertySource;
 
 /**
  * @author maoliang
@@ -15,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @EnableNacosConfig(globalProperties = @NacosProperties(serverAddr = "${dubbo.config-center.address}", namespace = "${dubbo.config-center.namespace}"))
 @NacosPropertySource(dataId = "dubbo-server-test.properties", groupId = "dubbo-server", autoRefreshed = true)
 @SpringBootApplication
+@PropertySource(value = "classpath:dubbo-provider.properties")
 @EnableDubbo(scanBasePackageClasses = HelloServiceImpl.class)
 public class DubboServerApplication {
 
