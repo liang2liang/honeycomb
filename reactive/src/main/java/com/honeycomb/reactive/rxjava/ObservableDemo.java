@@ -4,6 +4,7 @@ import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 
 /**
+ * RxJava的每一步链式增强操作，都是通过装饰者模式进行增强操作的。
  * @author maoliang
  * @version 1.0.0
  */
