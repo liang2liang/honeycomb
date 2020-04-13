@@ -17,6 +17,7 @@
         <module>nacos</module>
         <module>sentinel</module>
         <module>dubbo</module>
+        <module>ehcache</module>
     </modules>
 
     <groupId>com.honeycomb</groupId>
