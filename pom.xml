@@ -18,6 +18,7 @@
         <module>sentinel</module>
         <module>dubbo</module>
         <module>ehcache</module>
+        <module>springcloud</module>
     </modules>
 
     <groupId>com.honeycomb</groupId>
