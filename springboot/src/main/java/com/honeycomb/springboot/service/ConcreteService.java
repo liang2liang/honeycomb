@@ -1,6 +1,8 @@
 package com.honeycomb.springboot.service;
 
+import com.honeycomb.springboot.entity.User;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 
@@ -9,6 +11,9 @@ import javax.annotation.PostConstruct;
  * @version 1.0.0
  */
 public class ConcreteService implements InitializingBean {
+
+    @Autowired
+    private User user;
 
     @PostConstruct
     public void init(){
