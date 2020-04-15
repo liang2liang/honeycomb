@@ -31,6 +31,10 @@ public class ThreadOperationTest {
                 .blockingSubscribe(LogUtil::log);
     }
 
+    /**
+     * 指定Observable自身在哪个调度器上执行,如果只使用了subscribeOn而未使用observeOn，观察者也会在发布者线程上执行
+     * @throws InterruptedException
+     */
     @Test
     public void testSubscribeOn() throws InterruptedException {
         Disposable subscribe = Observable.range(1, 10)
@@ -48,14 +52,21 @@ public class ThreadOperationTest {
         TimeUnit.SECONDS.sleep(3);
     }
 
-    public void testSubscribeOn1(){
+    /**
+     * 指定一个观察者在哪个调度器上观察这个Observable
+     * @throws InterruptedException
+     */
+    @Test
+    public void testObserveOn() throws InterruptedException {
         Disposable subscribe = Observable.range(1, 10)
-                .subscribeOn(Schedulers.computation())
+                .observeOn(Schedulers.computation())
                 .map(i -> {
                     LogUtil.log(i);
                     return i * 10;
                 })
                 .doOnDispose(() -> System.out.println(Thread.currentThread().getName()))
                 .subscribe(LogUtil::log);
+
+        TimeUnit.SECONDS.sleep(3);
     }
 }
