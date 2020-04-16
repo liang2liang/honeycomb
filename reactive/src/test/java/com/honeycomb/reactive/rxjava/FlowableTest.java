@@ -2,6 +2,8 @@ package com.honeycomb.reactive.rxjava;
 
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
+import io.reactivex.Observable;
+import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
 import org.junit.Test;
 
@@ -25,6 +27,8 @@ public class FlowableTest {
     /**
      * BackpressureStrategy.BUFFER:会按缓存大小，分成多份数据存入容器，
      * 而消费者会从装满数据的容器中获取发布的数据。一旦发布的数据过多，消费者消费速度过慢会产生OOM。
+     * BackpressureStrategy.LATEST:在消费者处于繁忙阶段上游只保存最近一个元素。
+     * BackpressureStrategy.DROP:在消费者处于繁忙阶段，直接抛弃发布的元素。
      * @throws InterruptedException
      */
     @Test
@@ -52,6 +56,24 @@ public class FlowableTest {
                 }, Throwable::printStackTrace, () -> System.out.println("complete"));
 
         TimeUnit.SECONDS.sleep(40);
+    }
+
+    @Test
+    public void testObservableToFlowable() throws InterruptedException {
+        Observable.range(1, 100)
+                .toFlowable(BackpressureStrategy.BUFFER)
+                .observeOn(Schedulers.computation())
+                .subscribe(System.out::println);
+        TimeUnit.SECONDS.sleep(3);
+    }
+
+    @Test
+    public void testFlowableToObservable() throws InterruptedException {
+        Flowable.range(1, 10)
+                .subscribeOn(Schedulers.computation())
+                .toObservable()
+                .subscribe(System.out::println);
+        TimeUnit.SECONDS.sleep(3);
     }
 
     static class Customer{
