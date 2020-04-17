@@ -19,6 +19,7 @@
         <module>dubbo</module>
         <module>ehcache</module>
         <module>springcloud</module>
+        <module>mq</module>
     </modules>
 
     <groupId>com.honeycomb</groupId>
