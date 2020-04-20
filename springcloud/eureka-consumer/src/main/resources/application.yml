@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: consumer
+server:
+  port: 30030
+eureka:
+  instance:
+    prefer-ip-address: true
+    status-page-url-path: /actuator/info
+    health-check-url-path: /actuator/health
+    metadata-map:
+      zone: zone-1
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    prefer-same-zone-eureka: true
+    #地区:通过地区找可用的zone
+    region: beijing
+    #空间：通过空间找注册中心地址
+    availability-zones:
+      beijing: zone-1,zone-2
+    service-url:
+      zone-1: http://localhost:30000/eureka/
+      zone-2: http://localhost:30001/eureka/
