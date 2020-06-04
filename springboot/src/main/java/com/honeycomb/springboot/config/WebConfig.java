@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.ArrayList;
@@ -62,5 +63,23 @@ public class WebConfig implements WebMvcConfigurer {
         fastMediaTypes.add(new MediaType("application", "*+json"));
         fastJsonHttpMessageConverter.setSupportedMediaTypes(fastMediaTypes);
         converters.add(fastJsonHttpMessageConverter);
+    }
+
+    /**
+     * cros支持
+     *
+     * @param registry
+     */
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                //允许带cookies
+                .allowCredentials(true)
+                //允许的header
+                .allowedHeaders("*")
+                //允许跨域的地址
+                .allowedOrigins("*")
+                //允许跨域的方法
+                .allowedMethods("*");
     }
 }
