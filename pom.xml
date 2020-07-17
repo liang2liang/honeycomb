@@ -20,6 +20,7 @@
         <module>ehcache</module>
         <module>springcloud</module>
         <module>mq</module>
+        <module>io</module>
     </modules>
 
     <groupId>com.honeycomb</groupId>
