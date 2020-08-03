@@ -3,6 +3,7 @@ package com.honeycomb.springboot.service;
 import com.honeycomb.springboot.entity.User;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
@@ -10,6 +11,7 @@ import javax.annotation.PostConstruct;
  * @author maoliang
  * @version 1.0.0
  */
+@Component
 public class ConcreteService implements InitializingBean {
 
     @Autowired
