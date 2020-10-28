@@ -58,7 +58,7 @@ public class HiveClient2 {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        Connection connection = DriverManager.getConnection("jdbc:hive2://10.61.240.46:39653/picus");
+        Connection connection = DriverManager.getConnection("jdbc:hive2://10.90.7.185:10000/picus");
         Statement statement = connection.createStatement();
 //        删除表
 //        boolean result = statement.execute("drop table test");
@@ -76,6 +76,7 @@ public class HiveClient2 {
                     Object object = resultSet.getObject(i);
                     System.out.println(i + ":" + object + " type is : " + Optional.ofNullable(object).map(Object::getClass).orElse(null));
                 }
+                System.out.println("");
             }
             System.out.println("ok");
         } finally {
