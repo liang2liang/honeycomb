@@ -22,6 +22,7 @@
         <module>mq</module>
         <module>io</module>
         <module>spring-security</module>
+        <module>spring-gateway</module>
     </modules>
 
     <groupId>com.honeycomb</groupId>
