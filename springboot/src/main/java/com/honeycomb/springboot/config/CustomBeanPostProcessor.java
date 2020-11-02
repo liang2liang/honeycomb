@@ -28,7 +28,7 @@ public class CustomBeanPostProcessor implements BeanPostProcessor {
         if("concreteService".equals(beanName)) {
             System.out.println("postProcessAfterInitialization call");
         }
-        process(bean);
+//        process(bean);
         return bean;
     }
 

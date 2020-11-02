@@ -1,6 +1,7 @@
 package com.honeycomb.springboot;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -16,6 +17,8 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 public class BootstrapApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BootstrapApplication.class, args);
+        SpringApplication springApplication = new SpringApplication(BootstrapApplication.class);
+        springApplication.setWebApplicationType(WebApplicationType.REACTIVE);
+        springApplication.run(args);
     }
 }

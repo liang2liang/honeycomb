@@ -7,7 +7,7 @@
         <module>util</module>
         <module>java</module>
         <module>drools</module>
-        <module>leetcode</module>
+        <module>algorithm</module>
         <module>reactive</module>
         <module>resilience4j</module>
         <module>shiro</module>
