@@ -23,6 +23,8 @@
         <module>io</module>
         <module>spring-security</module>
         <module>spring-gateway</module>
+        <module>doc</module>
+        <module>hive</module>
     </modules>
 
     <groupId>com.honeycomb</groupId>
@@ -114,6 +116,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-security</artifactId>
                 <version>${springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>${springboot.version}</version>
+                <optional>true </optional>
             </dependency>
 
         </dependencies>

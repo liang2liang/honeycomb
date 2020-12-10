@@ -32,31 +32,14 @@ public class HiveClient2 {
         }
     }
 
-    public static void main1(String[] args) throws SQLException, ClassNotFoundException {
-
-        Connection connection = DriverManager.getConnection("jdbc:hive2://10.61.240.46:39653/picus");
-        Statement statement = connection.createStatement();
-//        删除表
-//        boolean result = statement.execute("drop table test");
-        //创建表
-//        boolean result = statement.execute(createTableSql);
-        try {
-//            String sql = "insert into picus.test partition(year=2020,month=9,day=25) select 'honeycomb','123456', array('社会事件','新型冠状病毒','特朗普','军事新闻资讯'), '1601016552000', 0";
-//            String sql = "insert into picus.test partition(year=2020,month=9,day=25) select 'honeycomb','123456' from (select 'a') x";
-//            int i = statement.executeUpdate(sql);
-
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        try (Connection connection = DriverManager.getConnection("jdbc:hive2://10.61.224.37:7001/picus;user=picus"); Statement statement = connection.createStatement()) {
             String sql = "select * from picus.test";
-            ResultSet resultSet = statement.executeQuery(sql);
-            while (resultSet.next()) {
-                System.out.println("userId is :" + resultSet.getString(1) + "  guid is :" + resultSet.getString(2));
-            }
             System.out.println("ok");
-        } finally {
-            connection.close();
         }
     }
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    public static void main1(String[] args) throws SQLException, ClassNotFoundException {
 
         Connection connection = DriverManager.getConnection("jdbc:hive2://10.90.7.185:10000/picus");
         Statement statement = connection.createStatement();
