@@ -24,7 +24,6 @@
         <module>spring-security</module>
         <module>spring-gateway</module>
         <module>doc</module>
-        <module>hive</module>
     </modules>
 
     <groupId>com.honeycomb</groupId>
