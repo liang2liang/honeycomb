@@ -24,6 +24,8 @@
         <module>spring-security</module>
         <module>spring-gateway</module>
         <module>doc</module>
+        <module>asm</module>
+        <module>my-agent</module>
     </modules>
 
     <groupId>com.honeycomb</groupId>
