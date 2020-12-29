@@ -20,6 +20,8 @@ import java.security.ProtectionDomain;
 import java.util.concurrent.Callable;
 
 /**
+ * premain是在类加载阶段处理
+ * agentmain是在程序运行阶段处理
  * @author maoliang
  */
 public class AgentMain {
@@ -75,7 +77,7 @@ public class AgentMain {
 
     public static void agentmain(String agentArgs, Instrumentation instrumentation) throws ClassNotFoundException, UnmodifiableClassException {
         instrumentation.addTransformer(new DefineTransformer(), true);
-        //指定需要转化的类
+        //指定需要转化的类，会在jvm的安全点重新加载该类。
         instrumentation.retransformClasses(Class.forName("com.honeycomb.asm.pojo.Bean"));
     }
 

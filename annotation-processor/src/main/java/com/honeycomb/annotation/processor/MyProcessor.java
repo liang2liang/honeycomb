@@ -16,6 +16,7 @@ import javax.tools.Diagnostic;
 import java.util.Set;
 
 /**
+ * 注解处理器是在编译阶段加载，生成新类可以直接写文件，操作原始类需要通过编译树(JCTree)比较麻烦。
  * @author maoliang
  */
 @SupportedSourceVersion(value = SourceVersion.RELEASE_8)
@@ -42,6 +43,12 @@ public class MyProcessor extends AbstractProcessor {
         this.names = Names.instance(context);
     }
 
+    /**
+     * 返回true表示有生成新的源文件、class文件，需要重新进行一轮编译
+     * @param annotations
+     * @param roundEnv
+     * @return
+     */
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         messager.printMessage(Diagnostic.Kind.NOTE, "MyProcess开始执行");
