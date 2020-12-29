@@ -1,6 +1,6 @@
 package asm;
 
-import jdk.internal.org.objectweb.asm.Type;
+import org.objectweb.asm.Type;
 import org.junit.Test;
 
 /**

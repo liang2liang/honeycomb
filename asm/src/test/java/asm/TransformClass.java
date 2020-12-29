@@ -1,15 +1,13 @@
 package asm;
 
-import jdk.internal.org.objectweb.asm.*;
+import org.objectweb.asm.*;
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.xml.ws.RequestWrapper;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import static jdk.internal.org.objectweb.asm.Opcodes.*;
+import static org.objectweb.asm.Opcodes.*;
 
 /**
  * @author maoliang

@@ -7,7 +7,7 @@ import org.objectweb.asm.ClassWriter;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import static jdk.internal.org.objectweb.asm.Opcodes.*;
+import static org.objectweb.asm.Opcodes.*;
 
 /**
  * Java 类型	类型描述符

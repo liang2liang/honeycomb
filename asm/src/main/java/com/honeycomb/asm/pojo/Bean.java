@@ -1,31 +1,38 @@
 package com.honeycomb.asm.pojo;
 
+import com.honeycomb.annotation.processor.Get;
+import com.honeycomb.annotation.processor.NotNull;
+import com.honeycomb.annotation.processor.Set;
+import com.honeycomb.annotation.processor.TakeTime;
+
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author maoliang
  */
+@Get
+@Set
 public class Bean {
 
     private int f;
 
-    public int getF() {
-        return f;
-    }
+    private String name;
 
-    public void setF(int f) {
-        this.f = f;
-    }
-
-    public void checkAndSetF(int f) {
-//        final long start = System.currentTimeMillis();
+    @TakeTime(tag = "mmmm")
+    public void checkAndSetF(@NotNull(message = "hahha") Integer f) {
         if (f >= 21) {
             this.f = f;
+            System.out.println("ok");
         } else {
             throw new IllegalArgumentException();
         }
-//        System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName() + " 消耗时间为：" + (start - System.currentTimeMillis()));
     }
 
-    public static void main(String[] args) {
-        new Bean().checkAndSetF(1);
+    public static void main(String[] args) throws ClassNotFoundException, InterruptedException {
+        final Bean bean = new Bean();
+        while(true) {
+            new Bean().checkAndSetF(null);
+            TimeUnit.SECONDS.sleep(1);
+        }
     }
 }

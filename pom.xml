@@ -26,6 +26,7 @@
         <module>doc</module>
         <module>asm</module>
         <module>my-agent</module>
+        <module>annotation-processor</module>
     </modules>
 
     <groupId>com.honeycomb</groupId>
