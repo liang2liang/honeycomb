@@ -1,9 +1,9 @@
-package com.honeycomb.java.base.type;
+package com.honeycomb.java.base.byteclass;
 
 /**
  * @author maoliang
  */
-public class Test {
+public class TryCatch {
 
     private int block;
 
@@ -13,10 +13,7 @@ public class Test {
 
     private int methodBlock;
 
-    public static void main(String[] args) {
-
-    }
-
+    // 编译后字节码文件，try和catch都会在结束后跳转到final语句上。
     public void test(){
         try{
             block = 2;
